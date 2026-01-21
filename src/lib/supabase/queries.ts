@@ -40,29 +40,46 @@ export async function getAllProjects(filters?: ProjectFilters): Promise<Project[
   }
 }
 
-export async function getProjectById(id: string): Promise<ProjectWithDetails | null> {
+export async function getProjectById(id: string): Promise<Project | null> {
   try {
     const { data, error } = await supabaseAdmin
       .from('projects')
-      .select(`
-        *,
-        team:teams(*),
-        lead:users(*)
-      `)
+      .select('*')
       .eq('id', id)
       .single();
 
     if (error) {
       console.error('Error fetching project:', error);
-      throw error;
+      return null;
     }
 
     return data;
   } catch (error) {
-    console.error('Failed to fetch project:', error);
+    console.error('Error in getProjectById:', error);
     return null;
   }
 }
+
+export async function getProjectIssues(projectId: string): Promise<Issue[]> {
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('issues')
+      .select('*')
+      .eq('project_id', projectId)
+      .order('created_date', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching issues:', error);
+      return [];
+    }
+
+    return data || [];
+  } catch (error) {
+    console.error('Error in getProjectIssues:', error);
+    return [];
+  }
+}
+
 
 export async function createProject(project: ProjectInsert): Promise<Project> {
   try {

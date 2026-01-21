@@ -34,3 +34,27 @@ export interface ProjectStats {
   blocked: number;
   avg_health_score: number;
 }
+
+export interface Issue {
+  id: string;
+  jira_id: string;
+  jira_key: string;
+  project_id: string;
+  summary: string;
+  description: string | null;
+  issue_type: 'epic' | 'story' | 'task' | 'bug' | 'subtask';
+  status: 'to_do' | 'in_progress' | 'done' | 'blocked';
+  priority: string | null;
+  story_points: number | null;
+  assignee_id: string | null;
+  reporter_id: string | null;
+  labels: string[] | null;
+  components: string[] | null;
+  created_date: string;
+  updated_date: string;
+  resolved_date: string | null;
+  due_date: string | null;
+  parent_id: string | null;
+  is_blocked: boolean;
+  blocked_reason: string | null;
+}
