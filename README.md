@@ -260,17 +260,11 @@ Integrated with Atlassian Jira
 📞 Support
 For questions or issues, please open a GitHub issue or contact the maintainers.
 
-Built with ❤️ for better project management
-EOF
-
-text
-
-## Step 4: Create Additional Documentation Files
+**Built with ❤️ for better project management
+**
 
 ### LICENSE
 
-```bash
-cat > LICENSE << 'EOF'
 MIT License
 
 Copyright (c) 2026 Jira Dashboard
@@ -292,4 +286,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-EOF
